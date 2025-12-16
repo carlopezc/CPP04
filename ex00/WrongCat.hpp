@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carlopez <carlopez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 15:22:10 by carlopez          #+#    #+#             */
-/*   Updated: 2025/12/16 16:13:19 by carlopez         ###   ########.fr       */
+/*   Created: 2025/12/16 15:50:27 by carlopez          #+#    #+#             */
+/*   Updated: 2025/12/16 16:07:09 by carlopez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
+
 #include "WrongAnimal.hpp"
 
-int main (void)
+class WrongCat : public WrongAnimal 
 {
-    Animal* Yes = new Dog();
-    Animal* Tofu = new Cat();
-    Yes->makeSound();
-    Tofu->makeSound();
-    delete Yes;
-    delete Tofu;
+    public:
+        WrongCat();
+        ~WrongCat();
+        WrongCat(std::string type);
+        WrongCat(const WrongCat& other);
+        WrongCat& operator=(const WrongCat& other);
+        void makeSound();
+};
 
-    std::cout << "Ahora con la clase erronea" << std::endl;
-    WrongAnimal* meta = new WrongAnimal();
-    WrongAnimal* i = new WrongCat();
-    i->makeSound();
-    delete i;
-    delete meta;
-}
+#endif
