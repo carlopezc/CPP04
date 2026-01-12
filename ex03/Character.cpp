@@ -6,7 +6,7 @@
 /*   By: carlotalcd <carlotalcd@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 12:56:58 by carlotalcd        #+#    #+#             */
-/*   Updated: 2025/12/17 13:28:52 by carlotalcd       ###   ########.fr       */
+/*   Updated: 2026/01/12 14:36:17 by carlotalcd       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,10 @@ Character& Character::operator=(const Character& other)
         i = 0;
         while (i < 4)
         {
-            this->_materias[i] = other._materias[i].clone();
+            if (other._materias[i])
+                this->_materias[i] = other._materias[i]->clone();
+            else
+                this->_materias[i] = NULL;
             i++;
         }
     }
@@ -65,7 +68,16 @@ Character& Character::operator=(const Character& other)
 
 Character::~Character()
 {
+    int i;
+
     std::cout << "Character destructor called" << std::endl;
+    i = 0;
+    while (i < 4)
+    {
+        if (this->_materias[i] != NULL)
+            delete this->_materias[i];
+        i++;
+    }
 }
 
 std::string const& Character::getName() const
@@ -73,6 +85,38 @@ std::string const& Character::getName() const
     return (this->_nombre);
 }
         
-void equip(AMateria* m);
-void unequip(int idx);
-void use(int idx, ICharacter& target);
+void Character::equip(AMateria* m)
+{
+    int i;
+
+    i = 0;
+    if (m == NULL)
+        return ;
+    while (i < 4)
+    {
+        if (this->_materias[i] == NULL)
+        {
+            this->_materias[i] = m;
+            return ;
+        }
+        i++;
+    }
+}
+
+void Character::unequip(int idx)
+{
+    if (idx >= 0 && idx <= 3)
+    {
+        if (this->_materias[idx] != NULL)
+            this->_materias[idx] = NULL;
+    }
+}
+
+void Character::use(int idx, ICharacter& target)
+{
+    if (idx >= 0 && idx <= 3)
+    {
+        if (this->_materias[idx] != NULL)
+            this->_materias[idx]->use(target);
+    }
+}
