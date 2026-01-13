@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carlopez <carlopez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carlotalcd <carlotalcd@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 15:50:27 by carlopez          #+#    #+#             */
-/*   Updated: 2025/12/16 15:51:18 by carlopez         ###   ########.fr       */
+/*   Updated: 2026/01/12 18:21:39 by carlotalcd       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,4 @@ class Cat : public Animal
         void makeSound();
 };
 
-#endif
+#endif 

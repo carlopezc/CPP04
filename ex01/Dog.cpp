@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carlopez <carlopez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carlotalcd <carlotalcd@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 17:51:53 by carlopez          #+#    #+#             */
-/*   Updated: 2025/12/16 18:06:40 by carlopez         ###   ########.fr       */
+/*   Updated: 2026/01/13 14:57:46 by carlotalcd       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,25 @@ Dog& Dog::operator=(const Dog& other)
 void  Dog::makeSound()
 {
     std::cout << "Dog makes sound : Wof wof!" << std::endl;
+}
+
+void Dog::setBrainIdea(int i, const std::string& idea)
+{
+    if (i >= 0 && i < 100 && idea != "")
+        this->_brain->setIdea(i, idea);
+    else if (idea == "")
+        std::cout << "Please write a correct idea" << std::endl;
+    else
+        std::cout << "Please write a valid index" << std::endl;
+}
+
+std::string Dog::getBrainIdea(int i) const
+{
+    if (i >= 0 && i < 100)
+        return (this->_brain->getIdea(i));
+    else
+    {
+        std::cout << "Please write a valid index" << std::endl;
+        return ("");
+    }
 }

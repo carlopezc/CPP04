@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carlopez <carlopez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carlotalcd <carlotalcd@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 17:34:57 by carlopez          #+#    #+#             */
-/*   Updated: 2025/12/16 17:50:27 by carlopez         ###   ########.fr       */
+/*   Updated: 2026/01/13 15:01:02 by carlotalcd       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Brain::Brain()
         
 Brain::~Brain()
 {
-    std::cout << "Default brain destructor called" << std::endl;
+    std::cout << "Brain destructor called" << std::endl;
 }
         
 Brain::Brain(const Brain& other)
@@ -41,4 +41,17 @@ Brain& Brain::operator=(const Brain& other)
         }
     }
     return (*this);
+}
+
+std::string Brain::getIdea(int i) const
+{
+    if (i >= 0 && i < 100)
+        return (this->_ideas[i]);
+    return ("");
+}
+
+void Brain::setIdea(int i, const std::string& idea)
+{
+    if (i >= 0 && i < 100)
+        this->_ideas[i] = idea;
 }

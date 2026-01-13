@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carlopez <carlopez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carlotalcd <carlotalcd@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 15:51:30 by carlopez          #+#    #+#             */
-/*   Updated: 2025/12/16 18:12:48 by carlopez         ###   ########.fr       */
+/*   Updated: 2026/01/13 14:57:58 by carlotalcd       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,25 @@ Cat& Cat::operator=(const Cat& other)
 void  Cat::makeSound()
 {
     std::cout << "Cat makes sound : Miau miau!" << std::endl;
+}
+
+void Cat::setBrainIdea(int i, const std::string& idea)
+{
+    if (i >= 0 && i < 100 && idea != "")
+        this->_brain->setIdea(i, idea);
+    else if (idea == "")
+        std::cout << "Please write a correct idea" << std::endl;
+    else
+        std::cout << "Please write a valid index" << std::endl;
+}
+
+std::string Cat::getBrainIdea(int i) const
+{
+    if (i >= 0 && i < 100)
+        return (this->_brain->getIdea(i));
+    else
+    {
+        std::cout << "Please write a valid index" << std::endl;
+        return ("");
+    }
 }

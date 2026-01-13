@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carlopez <carlopez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carlotalcd <carlotalcd@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 17:35:04 by carlopez          #+#    #+#             */
-/*   Updated: 2025/12/16 17:44:42 by carlopez         ###   ########.fr       */
+/*   Updated: 2026/01/13 14:57:14 by carlotalcd       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ class Brain
         ~Brain();
         Brain(const Brain& other);
         Brain& operator=(const Brain& other);
+        std::string getIdea(int i) const;
+        void setIdea(int i, const std::string& idea);
 };
 
 #endif
