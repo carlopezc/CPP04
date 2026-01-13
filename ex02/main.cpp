@@ -6,7 +6,7 @@
 /*   By: carlotalcd <carlotalcd@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 11:01:12 by carlotalcd        #+#    #+#             */
-/*   Updated: 2025/12/17 11:05:05 by carlotalcd       ###   ########.fr       */
+/*   Updated: 2026/01/13 15:11:01 by carlotalcd       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 int main (void)
 {
+    //Animal *perro = new Animal();
     Animal* Yes = new Dog();
     Animal* Tofu = new Cat();
     Yes->makeSound();

@@ -6,7 +6,7 @@
 /*   By: carlotalcd <carlotalcd@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 11:01:01 by carlotalcd        #+#    #+#             */
-/*   Updated: 2025/12/17 11:14:52 by carlotalcd       ###   ########.fr       */
+/*   Updated: 2026/01/13 15:15:05 by carlotalcd       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,28 @@
 
 Dog::Dog() : Animal()
 {
+    _brain = new Brain();
     _type = "Dog";
-    std::cout << "Default Dog constructor called" << std::endl;
+    std::cout << "Default dog constructor called" << std::endl;
 }
 
 Dog::~Dog()
 {
+    delete _brain;
     std::cout << "Dog destructor called" << std::endl;
 }
 
 Dog::Dog(std::string type)
 {
+    _brain = new Brain();
     _type = type;
     std::cout << "Dog constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog& other)
+Dog::Dog(const Dog& other) : Animal(other)
 {
-    *this = other;
+    this->_type = other._type;
+    this->_brain = new Brain(*other._brain);
     std::cout << "Copy Dog constructor called" << std::endl;
 }
 
@@ -40,6 +44,9 @@ Dog& Dog::operator=(const Dog& other)
     if (this != &other)
     {
         this->_type = other._type;
+        if (this->_brain != NULL)
+            delete this->_brain;
+        this->_brain = new Brain(*other._brain);
     }
     return (*this);
 }
@@ -47,4 +54,25 @@ Dog& Dog::operator=(const Dog& other)
 void  Dog::makeSound()
 {
     std::cout << "Dog makes sound : Wof wof!" << std::endl;
+}
+
+void Dog::setBrainIdea(int i, const std::string& idea)
+{
+    if (i >= 0 && i < 100 && idea != "")
+        this->_brain->setIdea(i, idea);
+    else if (idea == "")
+        std::cout << "Please write a correct idea" << std::endl;
+    else
+        std::cout << "Please write a valid index" << std::endl;
+}
+
+std::string Dog::getBrainIdea(int i) const
+{
+    if (i >= 0 && i < 100)
+        return (this->_brain->getIdea(i));
+    else
+    {
+        std::cout << "Please write a valid index" << std::endl;
+        return ("");
+    }
 }
