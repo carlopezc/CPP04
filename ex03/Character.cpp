@@ -6,7 +6,7 @@
 /*   By: carlotalcd <carlotalcd@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 12:56:58 by carlotalcd        #+#    #+#             */
-/*   Updated: 2026/01/12 14:36:17 by carlotalcd       ###   ########.fr       */
+/*   Updated: 2026/01/13 16:18:42 by carlotalcd       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,14 @@ Character::Character(std::string const& name)
 
 Character::Character(const Character& other)
 {
+    int i;
+
+    i = 0;
+    while (i < 4)
+    {
+        this->_materias[i] = NULL;
+        i++;
+    }
     *this = other;
     std::cout << "Character copy constructor called" << std::endl;
 }
