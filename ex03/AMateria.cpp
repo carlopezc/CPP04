@@ -6,7 +6,7 @@
 /*   By: carlotalcd <carlotalcd@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 16:07:34 by carlotalcd        #+#    #+#             */
-/*   Updated: 2026/01/12 16:08:44 by carlotalcd       ###   ########.fr       */
+/*   Updated: 2026/01/13 15:35:29 by carlotalcd       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,4 @@ AMateria& AMateria::operator=(const AMateria& other)
 std::string const & AMateria::getType() const
 {
     return (this->_type);
-}
-
-void AMateria::use(ICharacter& target)
-{
-    (void)target;
 }

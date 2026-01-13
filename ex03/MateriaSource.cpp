@@ -6,7 +6,7 @@
 /*   By: carlotalcd <carlotalcd@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:07:47 by carlotalcd        #+#    #+#             */
-/*   Updated: 2026/01/12 15:58:18 by carlotalcd       ###   ########.fr       */
+/*   Updated: 2026/01/13 15:34:57 by carlotalcd       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,13 @@ MateriaSource::MateriaSource()
     }
     
 }
+
 MateriaSource::MateriaSource(const MateriaSource& other)
 {
    *this = other;
     std::cout << "MateriaSource copy constructor called" << std::endl;
 }
+
 MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 {
     if (this != &other)
@@ -73,7 +75,6 @@ void MateriaSource::learnMateria(AMateria* m)
     
     if (m == NULL)
         return; 
-        
     while (i < 4)
     {
         if (_materias[i] == NULL)
